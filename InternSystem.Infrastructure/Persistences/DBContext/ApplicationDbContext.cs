@@ -1,11 +1,11 @@
 ﻿using InternSystem.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace InternSystem.Infrastructure.Persistences.DbContext;
+namespace InternSystem.Infrastructure.Persistences.DBContext;
 
-public class InternSystemContext : Microsoft.EntityFrameworkCore.DbContext
+public class ApplicationDbContext : DbContext
 {
-    public InternSystemContext(DbContextOptions<InternSystemContext> options) : base(options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
     

@@ -1,16 +1,23 @@
-using InternSystem.Infrastructure.Persistences.DbContext;
+using InternSystem.API;
+using InternSystem.Infrastructure.Persistences.DBContext;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<InternSystemContext>(p =>
+
+builder.Services.AddDbContext<ApplicationDbContext>(p =>
     p.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+builder.Services.ConfigureApiServices(builder.Configuration);
+builder.Services.ConfigureApplicationService(builder.Configuration);
+builder.Services.ConfigureInfrastructureService(builder.Configuration);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

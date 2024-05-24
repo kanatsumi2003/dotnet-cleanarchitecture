@@ -6,6 +6,6 @@ namespace InternSystem.Domain.Entities;
 public class AspNetUser : BaseEntity
 {
     [Key]
-    public long Id { get; set; }
+    public int Id { get; set; }
     public string HoVaTen { get; set; }
 }
